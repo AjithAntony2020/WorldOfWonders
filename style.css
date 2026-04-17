@@ -65,3 +65,120 @@ body {
         text-align: center;
     }
 }
+
+/* wonder Card (CSS Grid) */
+
+.wonders-section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.wonders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.wonder-card {
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.wonder-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.wonder-card img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
+    display: block;
+}
+
+.card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.card-title {
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.card-description {
+    padding: 0.5rem 1.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+}
+
+
+.view-btn {
+    margin: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    align-self: end;
+}
+
+.view-btn:hover {
+    background-color: #2980b9;
+}
+
+.no-results {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #999;
+    font-size: 1.1rem;
+    grid-column: 1 / -1;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
+    display: block;
+}
+
+/* Mobile Card Layout */
+@media (max-width: 768px) {
+    .wonders-container {
+        grid-template-columns: 1fr;
+    }
+}
