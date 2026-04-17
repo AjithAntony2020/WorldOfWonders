@@ -233,3 +233,33 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Footer Styles */
+.footer {
+    background-color: #0b7b7f;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 2px solid #005a5d;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 1.5rem;
+    }
+
+    .footer-content p {
+        font-size: 0.85rem;
+    }
+}
