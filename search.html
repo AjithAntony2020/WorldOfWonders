@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Bar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Responsive Navigation Bar (Flexbox) -->
+    <nav class="navbar">
+        <div class="logo">World Wonders</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#description">Description</a></li>
+        </ul>
+    </nav>
+    <br>
+            <!-- Search Bar -->
+    <div class="search-container">
+            <input 
+                type="text" 
+                id="search-input" 
+                class="search-input" 
+                placeholder="Search by title"
+                aria-label="Search wonders"
+            >
+            <span class="search-icon">🔍</span>
+    </div>
+
+    <!-- Wonder Card (CSS Grid) -->
+    <section class="wonders-section">
+        <!-- Dynamic container for wonder cards - populated by JavaScript -->
+        <div class="wonders-container" id="wonders-container">
+            <!-- Cards will be generated here by JavaScript rendering engine -->
+        </div>
+    </section>
+
+
+    <!-- Load JavaScript rendering engine -->
+    <script src="script.js"></script>
+</body>
+</html>

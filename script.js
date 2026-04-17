@@ -57,10 +57,10 @@ let worldWonders = [
 
 document.addEventListener('DOMContentLoaded', async function() {
     console.log("DOM Content Loaded - Initializing rendering engine...");
-    
-    
-    // Render the fetched projects
+      
+    // Render the fetched wonders
     renderWonderCards(worldWonders);
+    setupSearchFunctionality();
 });
 
 /**
@@ -104,12 +104,11 @@ function createWonderCard(wonder) {
     const card = document.createElement('article');
     card.className = 'wonder-card';
     card.setAttribute('data-id', wonder.id);
-    card.setAttribute('data-category', wonder.category);
+    //card.setAttribute('data-category', wonder.category);
     
     // Build the card HTML structure using template literals
     card.innerHTML = `
         <img src="${wonder.imageURL}" alt="${wonder.title}" class="card-image">
-        <div class="card-badge">${wonder.category}</div>
         <h3 class="card-title">${wonder.title}</h3>
         <p class="card-description">${wonder.description}</p>
         <a href="${wonder.link}" class="view-btn">View Wonder</a>
@@ -117,3 +116,58 @@ function createWonderCard(wonder) {
     
     return card;
 }
+
+
+
+/**
+ * Sets up real-time search functionality
+ * Attaches event listener to search input for live filtering
+ */
+function setupSearchFunctionality() {
+    const searchInput = document.getElementById('search-input');
+    
+    if (!searchInput) {
+        console.warn("Warning: Search input with ID 'search-input' not found!");
+        return;
+    }
+    
+    // Add event listener for real-time search as user types
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        console.log("Search term:", searchTerm);
+        
+        // Filter wonders based on search term
+        const filteredWonders = filterWondersBySearch(worldWonders, searchTerm);
+        
+        // Reset category filter and render results
+        //resetFilterButtons();
+        renderWonderCards(filteredWonders);
+    });
+}
+
+/**
+ * Filters wonders based on search term
+ * Searches across title, description
+ * @param {Array} wonderList - Array of wonders to search through
+ * @param {String} searchTerm - The search query (case-insensitive)
+ * @returns {Array} - Filtered array of matching wonders
+ */
+function filterWondersBySearch(wonderList, searchTerm) {
+    // Return all wonders if search term is empty
+    if (!searchTerm.trim()) {
+        return wonderList;
+    }
+    
+    return wonderList.filter(wonder => {
+        // Search in title
+        const titleMatch = wonder.title.toLowerCase().includes(searchTerm);
+        
+        // Search in description
+        const descriptionMatch = wonder.description.toLowerCase().includes(searchTerm);
+        
+        
+        // Return true if any field matches
+        return titleMatch || descriptionMatch ;
+    });
+}
+
