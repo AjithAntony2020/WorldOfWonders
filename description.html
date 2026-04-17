@@ -17,8 +17,40 @@
         </ul>
     </nav>
 
+    <!-- Wonder Description Section -->
+    <section class="wonders-section">
+        <div class="description-container" id="description-container">
+            <h2 id="wonder-title"></h2>
+            <p id="wonder-description-text" class="wonder-description-text"></p>
+            <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+        </div>
+    </section>
+
     <!-- Load JavaScript rendering engine -->
     <script src="script.js"></script>
+
+    <script>
+        // Display the fetched description on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const wonderTitle = sessionStorage.getItem('wonderTitle');
+            const wonderDescription = sessionStorage.getItem('wonderDescription');
+            
+            const titleElement = document.getElementById('wonder-title');
+            const descriptionElement = document.getElementById('wonder-description-text');
+            
+            if (wonderTitle && wonderDescription) {
+                titleElement.textContent = wonderTitle;
+                descriptionElement.textContent = wonderDescription;
+            } else {
+                titleElement.textContent = 'Description';
+                descriptionElement.innerHTML = '<p>No description available. Please select a wonder from the home page.</p>';
+            }
+            
+            // Clear sessionStorage after displaying
+            // Uncomment the line below if you want to clear after viewing
+            // sessionStorage.clear();
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
