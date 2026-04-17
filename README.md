@@ -18,3 +18,26 @@ This project demonstrates the integration of modern frontend techniques with AI-
 
 One significant challenge faced during development was ensuring compatibility between the frontend's API requests and the Anthropic backend models. The Anthropic API frequently updates its model names and access requirements, which led to repeated errors such as 'model not found' or 'invalid model'. Resolving this required careful reading of the Anthropic documentation, testing multiple model versions, and handling errors gracefully in both the backend and frontend to ensure a smooth user experience even when the AI service changed or was temporarily unavailable.
 
+## Deployment Strategy: Vercel
+
+To deploy the World of Wonders project using Vercel, follow these steps:
+
+1. **Prepare the Project:**
+   - Ensure all dependencies are listed in `package.json` and your project runs correctly with `npm start`.
+   - Move your Express server code to an `api` directory as a serverless function, or use Vercel's Node.js support for backend APIs.
+   - Make sure your frontend files (`index.html`, `style.css`, `script.js`, etc.) are in the root or a `public` directory.
+
+2. **Connect to Vercel:**
+   - Go to [vercel.com](https://vercel.com/) and sign up or log in.
+   - Click **New Project** and import your GitHub/GitLab/Bitbucket repository containing the project.
+   - Follow the prompts to configure the project. Set the build command to `npm install` and the output directory to `public` (if using a `public` folder).
+
+3. **Configure Environment Variables:**
+   - In the Vercel dashboard, go to your project settings and add your `ANTHROPIC_API_KEY` as an environment variable.
+
+4. **Deploy:**
+   - Click **Deploy**. Vercel will build and deploy your project automatically.
+   - After deployment, your site will be live at a Vercel-provided URL (e.g., `https://your-project-name.vercel.app`).
+
+**Note:** If you need backend API routes, place your Express logic in the `api` directory as serverless functions, since Vercel does not support running a persistent Node.js server. For more advanced backend needs, consider using Vercel in combination with other backend services or platforms.
+
