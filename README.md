@@ -41,3 +41,17 @@ To deploy the World of Wonders project using Vercel, follow these steps:
 
 **Note:** If you need backend API routes, place your Express logic in the `api` directory as serverless functions, since Vercel does not support running a persistent Node.js server. For more advanced backend needs, consider using Vercel in combination with other backend services or platforms.
 
+## Local vs Vercel Deployment
+
+- **Local Development:**
+  - Run `npm start` to launch the Express server (server.js or api/index.js).
+  - All static files and API routes (like `/api/generate-description`) are handled by Express on `http://localhost:3000`.
+  - Use this mode for development and testing on your machine.
+
+- **Vercel Deployment:**
+  - The Express server is not used. Instead, API endpoints are implemented as serverless functions (e.g., `api/generate-description.js`).
+  - Static files are served by Vercel, and API requests are routed to the appropriate serverless function.
+  - Use the Vercel CLI (`vercel dev`) if you want to simulate the Vercel environment locally.
+
+**Note:** The codebase supports both local Express development and Vercel serverless deployment for flexibility and ease of testing.
+
