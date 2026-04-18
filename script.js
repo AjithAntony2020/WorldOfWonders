@@ -250,3 +250,21 @@ function initializeApp() {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', initializeApp);
 
+// Contact form validation for message textarea
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            const message = contactForm.querySelector('#message');
+            if (message) {
+                const value = message.value.trim();
+                if (value.length < 10 || value.length > 50) {
+                    e.preventDefault();
+                    alert('Message must be at least 10 characters and at most 50 characters.');
+                    message.focus();
+                }
+            }
+        });
+    }
+});
+
