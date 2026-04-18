@@ -78,7 +78,7 @@ API endpoint: http://localhost:3000/api/generate-description
 ## File Structure
 ```
 WorldOfWonders/
-├── server.js           (Backend server - runs on port 3000)
+├── index.js           (Backend server - runs on port 3000)
 ├── package.json        (Node.js dependencies)
 ├── .env               (Contains ANTHROPIC_API_KEY - KEEP SECRET)
 ├── index.html         (Home page)

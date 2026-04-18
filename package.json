@@ -2,10 +2,10 @@
   "name": "world-of-wonders",
   "version": "1.0.0",
   "description": "World Wonders exploration website with AI-powered descriptions",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node index.js",
+    "dev": "node index.js"
   },
   "keywords": ["wonders", "world", "anthropic", "ai"],
   "author": "",
