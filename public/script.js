@@ -207,7 +207,7 @@ function filterWondersBySearch(wonderList, searchTerm) {
  * @returns {Promise<String>} - The generated description
  */
 async function fetchWonderDescription(wonderTitle) {
-    const apiEndpoint = 'http://localhost:3000/api/generate-description';
+    const apiEndpoint = '/api/generate-description';
     
     try {
         const response = await fetch(apiEndpoint, {
@@ -236,7 +236,7 @@ async function fetchWonderDescription(wonderTitle) {
  */
 function initializeApp() {
     // Check if the backend server is running
-    fetch('http://localhost:3000/api/health')
+    fetch('/api/health')
         .then(response => {
             if (response.ok) {
                 console.log('Backend server is running');
